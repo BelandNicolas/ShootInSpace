@@ -34,12 +34,13 @@ namespace ShootInSpace
             {
                 NeedToDelete = true;
             }
-            foreach (Meteor meteor in Game1.meteors)
+            foreach (Meteor meteor in Game1.meteors) //Collision avec un meteor
             {
                 if (BoxCollider.Intersects(meteor.BoxCollider))
                 {
                     NeedToDelete = true;
                     meteor.NeedToDelete = true;
+                    SoundsBank.PlaySoundsEffect("Explosion");
                     player.Score++;
                 }
             }

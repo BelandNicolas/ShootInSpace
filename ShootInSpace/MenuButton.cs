@@ -52,6 +52,7 @@ namespace ShootInSpace
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed && souris == ButtonState.Released) //Si il clique
                 {
                     Console.WriteLine(texte);
+                    SoundsBank.PlaySoundsEffect("Click");
                     switch (asignButton) //Effectue la commande selon son utility
                     {
                         case utility.Play:

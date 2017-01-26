@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 
 namespace ShootInSpace
 {
@@ -16,7 +18,7 @@ namespace ShootInSpace
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        const string CurrentVersion = "1.0.0";
+        const string CurrentVersion = "1.0.1";
 
         Player player;
 
@@ -34,6 +36,8 @@ namespace ShootInSpace
 
         ButtonState SourisLastState;
         KeyboardState LastKeyState = new KeyboardState();
+
+        Song musicGame;
 
         public Game1()
         {
@@ -57,7 +61,7 @@ namespace ShootInSpace
             // TODO: Add your initialization logic here
             fenetre = graphics.GraphicsDevice.Viewport;
             MenuBase.Initialize();
-
+            
             base.Initialize();
         }
 
@@ -84,6 +88,12 @@ namespace ShootInSpace
             backGround2.Sprite = Content.Load<Texture2D>("bg_verti.png");
             backGround2.BoxCollider = new Rectangle(0, -backGround1.BoxCollider.Height, fenetre.Width, fenetre.Height + backGround2.Speed);
 
+            musicGame = Content.Load<Song>("TechnoMusic");
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = 0.2f;
+            MediaPlayer.Play(musicGame);
+
+            SoundsBank.LoadSounds(Content);
         }
 
         /// <summary>

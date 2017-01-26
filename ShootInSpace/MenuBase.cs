@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace ShootInSpace
 {
-    public static class MenuBase
+    public class MenuBase
     {
         public const byte NBBUTTON = 3;
         public const int HEIGHTBUTTON =75 ;

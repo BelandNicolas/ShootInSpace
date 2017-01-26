@@ -65,6 +65,7 @@ namespace ShootInSpace
                     if (lastKey.IsKeyUp(Keys.Space) && bulletDelay > 6) //tirer direct après avoir lacher la barre d'espace
                     {
                         bullets.Add(new Ammo(game.Content.Load<Texture2D>("FireShoot.png"), new Vector2(BoxCollider.X + BoxCollider.Width / 2 - 5, BoxCollider.Y - 10)));
+                        SoundsBank.PlaySoundsEffect("LaserGunModify");
                     }
                     else
                     {
@@ -80,6 +81,7 @@ namespace ShootInSpace
                     {
                         Life--;
                         meteor.NeedToDelete = true;
+                        SoundsBank.PlaySoundsEffect("Explosion");
                     }
                 }
                 #endregion
@@ -150,7 +152,7 @@ namespace ShootInSpace
 
             if (Game1.DebugMode) spriteBatch.DrawString(Game1.debugSpriteFont, "Fire Rate : " + bulletDelay.ToString(), new Vector2(10, 150), Color.White);
             if (Game1.DebugMode) spriteBatch.DrawString(Game1.debugSpriteFont, "Vie du joueur : " + Life.ToString(), new Vector2(10, 200), Color.White);
-            if (!IsAlive) spriteBatch.DrawString(Game1.debugSpriteFont, messageMort, new Vector2(Game1.fenetre.Width / 2 - Game1.debugSpriteFont.MeasureString(messageMort).X / 2, Game1.fenetre.Height / 2 - Game1.debugSpriteFont.MeasureString(messageMort).Y), Color.White);
+            if (!IsAlive) spriteBatch.DrawString(Game1.debugSpriteFont, messageMort, new Vector2(Game1.fenetre.Width / 2 - Game1.debugSpriteFont.MeasureString(messageMort).X / 2, Game1.fenetre.Height / 2 - Game1.debugSpriteFont.MeasureString(messageMort).Y), Color.White, 0.0f, Vector2.Zero, 1.2f, SpriteEffects.None, 1);
         }
 
         public void Shoot(Game1 game)
@@ -161,7 +163,8 @@ namespace ShootInSpace
             }
             if (bulletDelay <= 0)
             {
-                bullets.Add(new Ammo(game.Content.Load<Texture2D>("FireShoot.png"), new Vector2(BoxCollider.X + BoxCollider.Width / 2 - 5, BoxCollider.Y - 10))); 
+                bullets.Add(new Ammo(game.Content.Load<Texture2D>("FireShoot.png"), new Vector2(BoxCollider.X + BoxCollider.Width / 2 - 5, BoxCollider.Y - 10)));
+                SoundsBank.PlaySoundsEffect("LaserGunModify");
             }
             //Reset bullet delay
             if (bulletDelay == 0)

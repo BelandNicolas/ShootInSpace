@@ -31,3 +31,33 @@
 /processorParam:TextureFormat=Compressed
 /build:TexteMenu.spritefont
 
+#begin TechnoMusic.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:TechnoMusic.mp3
+
+#begin Bombe.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Bombe.wav
+
+#begin Laser_Gun.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Laser_Gun.wav
+
+#begin Laser_Gun_Modify.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Laser_Gun_Modify.wav
+
+#begin Clic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Clic.wav
+

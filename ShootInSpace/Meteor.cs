@@ -17,6 +17,7 @@ namespace ShootInSpace
         int Speed;
         public bool NeedToDelete;
 
+
         public Meteor(Texture2D textu, int spd, Vector2 pos)
         {
             Sprite = textu;
@@ -26,6 +27,7 @@ namespace ShootInSpace
             BoxCollider.Width = 40;
             BoxCollider.Height = 40;
             Speed = spd;
+
         }
 
         public void Update(GameTime gameTime)
